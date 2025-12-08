@@ -21,7 +21,7 @@ export const QuizFilters = () => {
 
     useEffect(() => {
         if (questions && quizIsActive) {
-            navigate(ROUTES.QUIZ)
+            navigate(ROUTES.QUIZ.MAIN)
         }
     }, [])
 

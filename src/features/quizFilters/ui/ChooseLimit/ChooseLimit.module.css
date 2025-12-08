@@ -7,15 +7,20 @@
 .countButton {
     padding: 10px 12px;
     max-height: 34px;
-    background-color: #ffffff;
+    background-color: var(--background-color-secondary);
     border-radius: 12px;
-    border: 1px solid #BABABA;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #303030;
+    color: var(--text-card);
     outline: none;
     font-size: 16px;
     max-width: fit-content;
     user-select: none;
 } 
+
+.filterItem h3 {
+    color: var(--text-card);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--main-yeahub);
+}

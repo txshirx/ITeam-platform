@@ -12,7 +12,7 @@ export const ChooseSpecializations = () => {
     return (
         <div >
             <div className={styles.filterItem}>
-                <p>Специализация</p>
+                <h3>Специализация</h3>
                 <div className={styles.specializationsContainer}>
                     {data?.data.map(item => (
                         <FilterButton action={() => updateFilters('specializations', item.id)} key={item.id} title={item.title} filter='specializations' data={String(item.id)}/>

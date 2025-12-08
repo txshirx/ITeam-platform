@@ -11,15 +11,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --main-yeahub: #01de26;
+  --main-yeahub: #1ac737;
   /* --main-yeahub: #0077b6; */
-  --background-color-secondary: #026722;
+  --background-color-secondary: #282828;
+  --background-color-main: #1b1b1b;
   --progress-bar-secondary: #E1CEFF;
   --text-filter: #303030;
-  --text-main: #03ca24;
-  --text-card: #474747;
+  --text-main: #01de26;
+  --text-card: #d7d7d7;
   --text-color-in-main: #1b1b1b;
-  --background-main: #525252;
   --background-card: #FFFFFF;
   --button-rating-color: #F8F8F8;
   user-select: none;

@@ -3,6 +3,6 @@ export const Answer = ({ answer } : { answer: string }) => {
     if (!answer) return null
 
     return (
-        <div dangerouslySetInnerHTML={{ __html: answer }} />
+        <div style={{ color: 'var(--text-card)' }} dangerouslySetInnerHTML={{ __html: answer }} />
     )
 }
