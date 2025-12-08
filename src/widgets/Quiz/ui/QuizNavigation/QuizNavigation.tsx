@@ -10,24 +10,24 @@ export const QuizNavigation = () => {
     return (
         <div className={style.quizNavContainer}>
             {
-                location.pathname === ROUTES.QUIZ_CREATE ? 
+                location.pathname === ROUTES.QUIZ.CREATE ? 
                 (
                     <div className={style.content}>
-                        <Link to={ROUTES.QUIZ_CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
+                        <Link to={ROUTES.QUIZ.CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
                     </div>
                 )
-                : location.pathname === ROUTES.QUIZ ? 
+                : location.pathname === ROUTES.QUIZ.MAIN ? 
                 (
                     <div className={style.content}>
-                        <Link to={ROUTES.QUIZ_CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
-                        <Link to={ROUTES.QUIZ}><span>Квиз</span> <RightArrowNavigation/></Link>
+                        <Link to={ROUTES.QUIZ.CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
+                        <Link to={ROUTES.QUIZ.MAIN}><span>Квиз</span> <RightArrowNavigation/></Link>
                     </div>
                 ) 
                 :
                 (
                     <div className={style.content}>
-                        <Link to={ROUTES.QUIZ_CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
-                        <Link to={ROUTES.QUIZ_RESULT}><span>Результат</span> <RightArrowNavigation/></Link>
+                        <Link to={ROUTES.QUIZ.CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
+                        <Link to={ROUTES.QUIZ.RESULT}><span>Результат</span> <RightArrowNavigation/></Link>
                     </div>
                 )
             }

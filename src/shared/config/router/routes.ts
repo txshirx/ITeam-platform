@@ -1,8 +1,10 @@
 export const ROUTES = {
     MAIN: '/',
-    QUIZ_CREATE: '/quiz',
-    QUIZ: '/new',
-    QUIZ_RESULT: '/result',
+    QUIZ: {
+        CREATE: '/quiz',
+        MAIN: '/new',
+        RESULT: '/result', 
+    },
     QUESTION: '/questions/:questionId',
     QUESTIONS: '/questions'
 } as const 

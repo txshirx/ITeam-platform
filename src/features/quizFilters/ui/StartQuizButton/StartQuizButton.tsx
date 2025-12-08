@@ -14,7 +14,6 @@ export const StartQuizButton = ({ title, params } : { title: string, params: Fil
     const { setStorageValue: setQuestions } = useLocalStorage(STORAGE_KEYS.QUESTIONS_KEY, data?.questions)
     const { setStorageValue: setIsActive } = useLocalStorage(STORAGE_KEYS.QUIZ_IS_ACTIVE, true)
 
-    console.log(data)
     const handleStartQuiz = async () => {
         const result = await getQuiz(params).unwrap()
         if (result.questions) {

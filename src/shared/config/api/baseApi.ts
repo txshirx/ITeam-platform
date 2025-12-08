@@ -7,5 +7,5 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: () => ({}),
-    tagTypes: ['Skills', 'Specializations', 'Quiz', 'Question']
+    tagTypes: ['Skills', 'Specializations', 'Quiz', 'Question', 'QuestionsList']
 })
