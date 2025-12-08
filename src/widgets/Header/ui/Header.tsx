@@ -11,8 +11,7 @@ export const Header = () => {
         <div className={styles.headerInner}>
           <div className={styles.headerLeft}>
             <div className={styles.headerLogo}>
-              <LogoIcon />
-              <span>Yeahub</span>
+              <h2>ITeam</h2>
             </div>
             <div className={styles.headerNav}>
               <Link to={ROUTES.QUESTIONS}><button>База вопросов</button></Link>

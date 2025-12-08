@@ -1,0 +1,24 @@
+
+.card {
+  width: 700px;
+  height: 65px;
+  background: hsl(0, 0%, 100%);
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #D1D1D1;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  height: 100%;
+  width: 200px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(227, 225, 225, 0.6) 30%, rgba(0, 62, 51, 0.3) 90%);
+  animation: shimmerMove 2s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { transform: translateX(0); transition: 300ms ease-in; }
+  100% { transform: translateX(800px); }
+}

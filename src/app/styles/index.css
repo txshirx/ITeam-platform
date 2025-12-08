@@ -5,21 +5,36 @@
   font-size: 16px;
   color-scheme: light dark;
   color: #191919;
-  background-color: #F4F4F4;
+  background-color: #1b1b1b;
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --main-yeahub: #003E33;
+  --main-yeahub: #01de26;
+  /* --main-yeahub: #0077b6; */
+  --background-color-secondary: #026722;
   --progress-bar-secondary: #E1CEFF;
   --text-filter: #303030;
-  --text-main: #191919;
+  --text-main: #03ca24;
   --text-card: #474747;
-  --background-main: #F4F4F4;
+  --text-color-in-main: #1b1b1b;
+  --background-main: #525252;
   --background-card: #FFFFFF;
   --button-rating-color: #F8F8F8;
   user-select: none;
+  --ca: #00ffd0;
+
 }
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
 
 a {
   font-weight: 500;
