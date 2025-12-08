@@ -8,7 +8,7 @@ const ItemEllipse: React.FC<React.SVGProps<SVGElement>> = ({width = 8, height = 
     fill="none"
     viewBox="0 0 8 8"
   >
-    <circle cx="4" cy="4" r="4" fill="#53F"></circle>
+    <circle cx="4" cy="4" r="4" fill="var(--main-yeahub)"></circle>
   </svg>
 );
 

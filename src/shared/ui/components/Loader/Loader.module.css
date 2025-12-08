@@ -1,0 +1,42 @@
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.spinner {
+    animation-name: spinner-rotate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    display: flex;
+    margin: 0 auto;
+}
+
+.circle {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: spinner-dash 1.5s ease-in-out infinite;
+}
+
+@keyframes spinner-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner-dash {
+    0% {
+        stroke-dashoffset: 150;
+    }
+    50% {
+        stroke-dashoffset: 75;
+        transform: rotate(45deg);
+    }
+    100% {
+        stroke-dashoffset: 150;
+        transform: rotate(360deg);
+    }
+}

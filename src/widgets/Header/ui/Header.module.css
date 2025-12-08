@@ -1,7 +1,6 @@
 .header {
   height: 100px;
   position: fixed;
-  background-color: #ffffff;
   top: 0;
   left: 0;
   right: 0;
@@ -44,9 +43,11 @@
 .headerNav button {
   font-size: 16px;
   margin-right: 20px;
+  padding: 12px 12px 8px 12px;
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--main-yeahub);
 }
 
 .headerNav button:last-child {
@@ -69,7 +70,7 @@
   border-radius: 12px;
   padding: 13px 13px;
   background-color: var(--main-yeahub);
-  color: white;
+  color: var(--text-color-in-main);
   border: none;
   cursor: pointer;
 }
