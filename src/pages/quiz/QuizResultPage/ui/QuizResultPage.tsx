@@ -3,7 +3,7 @@ import { PassedQuestions, QuizNavigation } from "@/widgets/Quiz"
 import style from './QuizResultPage.module.css'
 import { ButtonRestart } from "@/features/quiz"
 
-export const QuizResultPage = () => {
+const QuizResultPage = () => {
     return (
         <>
             <Header/>
@@ -15,3 +15,5 @@ export const QuizResultPage = () => {
         </>
     )
 }
+
+export default QuizResultPage

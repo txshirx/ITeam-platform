@@ -8,7 +8,7 @@ export const StoppedButton = () => {
 
     const handleStopped = () => {
         clearLocalStorage()
-        navigate(ROUTES.QUIZ_CREATE)
+        navigate(ROUTES.QUIZ_CREATE, { replace: true })
     }
 
     return (

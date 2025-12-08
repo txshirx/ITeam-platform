@@ -7,7 +7,7 @@ import type { Question } from "@/shared/config/api/types"
 import { ProgressBar, QuizNavigation } from "@/widgets/Quiz"
 import { QuizQuestionCard } from "@/entities/quiz"
 
-export const QuizPage = () => {
+const QuizPage = () => {
     const { storageValue: currentQuestion } = useLocalStorage<number>(STORAGE_KEYS.ACTIVE_QUESTION_KEY)
     const { storageValue: answeredQuestions } = useLocalStorage<number>(STORAGE_KEYS.ANSWERED_QUESTIONS_KEY)
     const { storageValue: questions } = useLocalStorage<Question[]>(STORAGE_KEYS.QUESTIONS_KEY)
@@ -32,3 +32,5 @@ export const QuizPage = () => {
         </div>
     )
 }
+
+export default QuizPage

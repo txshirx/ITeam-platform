@@ -1,7 +1,10 @@
 import { LogoIcon } from "@/shared/ui/icons";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/shared/config/router/routes";
 
 export const Header = () => {
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -12,8 +15,8 @@ export const Header = () => {
               <span>Yeahub</span>
             </div>
             <div className={styles.headerNav}>
-              <button>База вопросов</button>
-              <button>Тренажер</button>
+              <Link to={ROUTES.QUESTIONS}><button>База вопросов</button></Link>
+              <Link to={ROUTES.QUIZ.CREATE}><button>Тренажер</button></Link>
             </div>
           </div>
 

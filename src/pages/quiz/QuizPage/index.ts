@@ -1,3 +1,3 @@
-import { QuizPage } from "./ui/QuizPage";
+import { QuizPage } from "./ui/QuizPage.lazy";
 
 export { QuizPage }

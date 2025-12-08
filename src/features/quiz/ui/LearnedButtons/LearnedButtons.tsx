@@ -4,11 +4,19 @@ import { useLocalStorage } from "@/shared/hooks";
 import { STORAGE_KEYS } from "@/shared/constants";
 import { ButtonsState, IsAnsweredStatus } from "../../model/constants";
 import type { IsAnsweredStatusType, LearnedButtonState } from "@/shared/config/model/types";
+import { useEffect } from "react";
 
 export const LearnedButtons = ({ id } : { id: number }) => {
-    const { setStorageValue: setStatus, storageValue: status } = useLocalStorage<LearnedButtonState>(`${STORAGE_KEYS.IS_LEARNED_KEY}_${id}`, { isAnsweredStatus: IsAnsweredStatus.NONE, buttonsState: ButtonsState.NONE })
+    const { setStorageValue: setPassedQuestions, storageValue: passedQuestions } = useLocalStorage<IsAnsweredStatusType>(`${STORAGE_KEYS.PASSED_QUESTIONS}_${id}`)
+    const { setStorageValue: setStatus, storageValue: status } = useLocalStorage<LearnedButtonState>(`${STORAGE_KEYS.IS_LEARNED_KEY}_${id}`)
     const { storageValue: answeredQuestions, setStorageValue: setAnsweredQuestions } = useLocalStorage(STORAGE_KEYS.ANSWERED_QUESTIONS_KEY, 0)
-    const { setStorageValue: setPassedQuestions } = useLocalStorage<IsAnsweredStatusType>(`${STORAGE_KEYS.PASSED_QUESTIONS}_${id}`, 'none')
+    
+
+    useEffect(() => {
+        if (!passedQuestions) {
+            setPassedQuestions('none')
+        }
+    }, [])
 
     const handleIsLearned = () => {
         if (status?.isAnsweredStatus !== IsAnsweredStatus.LEARNED) {

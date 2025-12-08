@@ -10,7 +10,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --main-yeahub: #6A0BFF;
+  --main-yeahub: #003E33;
   --progress-bar-secondary: #E1CEFF;
   --text-filter: #303030;
   --text-main: #191919;
@@ -18,6 +18,7 @@
   --background-main: #F4F4F4;
   --background-card: #FFFFFF;
   --button-rating-color: #F8F8F8;
+  user-select: none;
 }
 
 a {

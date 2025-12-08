@@ -3,7 +3,7 @@ import styles from "./QuizCreatePage.module.css"
 import { QuizFilters } from "@/features/quizFilters"
 import { QuizNavigation } from "@/widgets/Quiz"
 
-export const QuizCreatePage = () => {
+export default function QuizCreatePage() {
     return (
         <div className={styles.wrapper}>
             <Header/>
