@@ -10,11 +10,11 @@ export const useFilterParams = () => {
     const location = useLocation()
 
     useEffect(() => {
-        if (location.pathname === ROUTES.QUIZ_CREATE) {
+        if (location.pathname === ROUTES.QUIZ.CREATE) {
             if (!searchParams.get('mode')) {
                 params.set('mode', DEFAULT_MODE)
             }
-            if (!searchParams.get('limit')) {
+            if (!searchParams.get('limit') || Number(searchParams.get('limit')) > 100 || Number(searchParams.get('limit')) <= 0 || !Number(searchParams.get('limit'))) {
                 params.set('limit', String(DEFAULT_LIMIT_VALUE))
             }
             if (!searchParams.get('specializations')) {
@@ -28,7 +28,7 @@ export const useFilterParams = () => {
         const filter: FiltersParamsType = {
             skills: searchParams.get('skills') ? searchParams.get('skills')!.split(',').map(item => Number(item)) : [],
             specializations: searchParams.get('specializations') ? Number(searchParams!.get('specializations')) : REACT_DEVELOPER_ID,
-            limit: searchParams.get('limit') ? Number(searchParams!.get('limit')) : DEFAULT_LIMIT_VALUE,
+            limit: (searchParams.get('limit') && Number(searchParams.get('limit')) > 0 && Number(searchParams.get('limit')) < 100)? Number(searchParams!.get('limit')) : DEFAULT_LIMIT_VALUE,
             complexity: searchParams.get('complexity') ? searchParams.get('complexity')!.split(',').map(item => Number(item)) : [],
             mode: searchParams.get('mode') ? searchParams.get('mode') as ModeType : DEFAULT_MODE
         }

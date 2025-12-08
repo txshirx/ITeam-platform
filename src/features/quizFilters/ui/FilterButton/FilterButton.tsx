@@ -23,7 +23,7 @@ export const FilterButton = ({ imageSrc, data, title, action, filter } : FilterB
     }, [searchParams])
 
     return (    
-        <button className={isActive ? styles.isActive : ''} onClick={() => action()} key={data}> 
+        <button className={isActive ? styles.isActive : styles.default} onClick={() => action()} key={data}> 
             {imageSrc && !isError ? 
                 (<img 
                     src={imageSrc}

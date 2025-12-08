@@ -5,12 +5,20 @@ import styles from './QuestionsList.module.css'
 import { QuestionsListSkeleton } from "./QuestionList.skeleton";
 
 export const QuestionsList = () => { 
-    const { data, isLoading, isError, isFetching, isUninitialized } = questionsQuery.useGetQuestionsQuery()
+    const { data, isLoading, isError, error, isFetching, isUninitialized } = questionsQuery.useGetQuestionsQuery()
 
     const isLoad = isLoading || isFetching || isUninitialized
 
     if (isLoad || data?.data.length === 0) {
         return <QuestionsListSkeleton/>
+    }
+
+    if (isError) {
+        return (
+            <div className={styles.listWrapper}>
+                <h2>УПС! Кажется произошла ошибка</h2>
+            </div>
+        )
     }
 
     return (

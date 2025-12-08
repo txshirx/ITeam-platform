@@ -3,5 +3,9 @@
     width: 700px;
     padding: 20px;
     border-radius: 24px;
-    background-color: white;
+    background-color: var(--background-color-secondary);
+}
+
+.listWrapper h2 {
+    color: var(--main-yeahub)
 }

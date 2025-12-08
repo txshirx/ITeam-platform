@@ -13,7 +13,8 @@ export const ChooseSkills = () => {
     return (
         <div >
             <div className={styles.filterItem}>
-                <p>Категории вопросов</p>
+                <h3>Категории вопросов</h3>
+                
                 <div className={styles.skillsContainer}>
                     {data?.data.map(item => (
                         <FilterButton action={() => updateFilters('skills', [item.id])} key={item.id} filter='skills' imageSrc={item.imageSrc} title={item.title} data={String(item.id)}/>

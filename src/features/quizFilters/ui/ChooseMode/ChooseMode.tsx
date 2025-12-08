@@ -10,7 +10,7 @@ export const ChooseMode = () => {
     return (
         <div >
             <div className={styles.filterItem}>
-                <p>Выберите режим</p>
+                <h3>Выберите режим</h3>
                 <div className={styles.modeContainer}>
                     {(Object.values(MODE)).map((item, ind) => (
                         <FilterButton action={() => updateFilters('mode', item.value as ModeType)} filter='mode' key={ind} title={item.title} data={item.value}/>

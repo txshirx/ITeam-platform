@@ -1,8 +1,8 @@
 .wrapper {
-    
     min-height: 64px;
     border-bottom: solid #D1D1D1 1px;
-    background-color: white;
+    background-color: var(--background-color-secondary);
+    color: var(--text-card);
     display: flex;
     align-items: center;
     cursor: pointer;

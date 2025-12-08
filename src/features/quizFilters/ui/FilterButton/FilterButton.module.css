@@ -7,3 +7,13 @@
 .isActive {
   border-color: var(--main-yeahub);
 }
+
+button {
+  background-color: var(--background-color-secondary);
+  color: var(--text-card)
+}
+
+.default {
+  border-color: var(--background-color-secondary);
+  border-bottom: 1px solid var(--background-color-main);
+}

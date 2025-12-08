@@ -22,7 +22,7 @@ export const PreviewQuestionCard = React.memo(({ title, id, shortAnswer, rate, c
                 onClick={clickedHandler}
                 className={styles.wrapper}
                 style={{
-                    borderBottom: clicked ? 'solid var(--main-yeahub) 2px' : 'solid #D1D1D1 1px'
+                    borderBottom: clicked ? 'solid var(--main-yeahub) 2px' : 'none'
                 }}
             >
                 <ItemEllipse />

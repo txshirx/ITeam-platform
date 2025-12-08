@@ -5,14 +5,26 @@ import { useFilterParams } from '../../model/hooks/useFilterParams'
 export const ChooseLimit = () => {
     const { updateFilters, filtersParams } = useFilterParams()
 
+    const plusHandler = () => {
+        if (filtersParams.limit < 100) {
+            updateFilters('limit', filtersParams.limit + 1)
+        }
+    }
+
+    const minusHandler = () => {
+        if (filtersParams.limit > 1) {
+            updateFilters('limit', filtersParams.limit - 1)
+        }
+    }
+
     return (
         <div >
             <div className={styles.filterItem}>
-                <p>Количество вопросов</p>
+                <h3>Количество вопросов</h3>
                 <div className={styles.countButton}>
-                    <div onClick={() => filtersParams.limit > 1 ? updateFilters('limit', filtersParams.limit - 1) : null}><MinusIcon/></div>
+                    <div onClick={minusHandler}><MinusIcon/></div>
                     {filtersParams.limit}
-                    <div onClick={() => updateFilters('limit', filtersParams.limit + 1)}><PlusIcon/></div>
+                    <div onClick={plusHandler}><PlusIcon/></div>
                 </div>
             </div>
         </div>
