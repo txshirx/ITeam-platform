@@ -10,6 +10,7 @@ type QuestionCardPropsType = {
     LearnedButtons: React.ComponentType<{ id: number }>,
     CompleteButton: React.ComponentType,
     SwitchQuestion: React.ComponentType<{ id: number }>,
+    NextButton?: React.ComponentType<{ id: number }>,
 }
 
 export const QuizQuestionCard = (
@@ -20,6 +21,7 @@ export const QuizQuestionCard = (
         LearnedButtons, 
         SwitchQuestion,
         CompleteButton,
+        NextButton
     } : QuestionCardPropsType) => {
     const [visible, setVisible] = useState(false)
 
@@ -55,7 +57,10 @@ export const QuizQuestionCard = (
                 </div>
                 <LearnedButtons id={id}/>
             </div>
-            <CompleteButton/>
+            <div className={styles.flex}>
+                <CompleteButton/>
+                {NextButton ? <NextButton id={id}/> : null}
+            </div>
         </div>
     )
 }

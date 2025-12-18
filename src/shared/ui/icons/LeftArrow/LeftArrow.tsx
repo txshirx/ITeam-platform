@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const LeftArrow: React.FC<React.SVGProps<SVGElement>> = ({ width=28, height=28, stroke="#6A0BFF" }) => (
+const LeftArrow: React.FC<React.SVGProps<SVGElement>> = ({ width=28, height=28, stroke="var(--main-yeahub)" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
@@ -8,7 +8,7 @@ const LeftArrow: React.FC<React.SVGProps<SVGElement>> = ({ width=28, height=28, 
     fill="none"
     viewBox="0 0 28 28"
   >
-    <rect width="27" height="27" x="0.5" y="0.5" fill="#fff" rx="13.5"></rect>
+    <rect width="27" height="27" x="0.5" y="0.5" fill="var(--background-color-secondary)" rx="13.5"></rect>
     <rect
       width="27"
       height="27"

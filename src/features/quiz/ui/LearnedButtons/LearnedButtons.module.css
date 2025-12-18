@@ -10,6 +10,7 @@
   padding: 10px 12px;
 
   border-radius: 12px;
+  border: 1px solid var(--main-yeahub);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -20,8 +21,8 @@
 
 
 .learnedButton:hover {
-  background: #f8f6ff;
-  color: var(--main-yeahub);
+  background: var(--main-yeahub);
+  color: var(--text-color-in-main);
   transition: ease-in-out 300ms;
 }
 

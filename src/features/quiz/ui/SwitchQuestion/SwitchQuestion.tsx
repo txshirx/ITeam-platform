@@ -15,10 +15,10 @@
             return (
                 <div className={styles.switchQuestion}>
                     <div>
-                        <LeftArrow stroke='#8f8f8fff'/>
+                        <LeftArrow stroke='#004704ff'/>
                     </div>
                     <div>
-                        <RightArrow stroke='#8f8f8fff'/>
+                        <RightArrow stroke='#004704ff'/>
                     </div>
                 </div>
             )
@@ -38,11 +38,11 @@
 
         return (
             <div className={styles.switchQuestion}>
-                <div onClick={() =>  handlePrevQuestion()}>
-                    <LeftArrow stroke={currentQuestion === 1 ? '#8f8f8fff' : undefined}/>
+                <div onClick={handlePrevQuestion}>
+                    <LeftArrow stroke={currentQuestion === 1 ? 'var(--main-yeahub-secondary)' : undefined}/>
                 </div>
-                <div onClick={() =>  handleNextQuestion()}>
-                    <RightArrow stroke={(currentQuestion === questions?.length || status?.buttonsState === 'none') ? '#8f8f8fff' : undefined}/>
+                <div onClick={handleNextQuestion}>
+                    <RightArrow stroke={(currentQuestion === questions?.length || status?.buttonsState === 'none') ? '#004704ff' : undefined}/>
                 </div>
             </div>
         )

@@ -12,6 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --main-yeahub: #1ac737;
+  --main-yeahub-secondary: #2b4d31;
   /* --main-yeahub: #0077b6; */
   --background-color-secondary: #282828;
   --background-color-main: #1b1b1b;
@@ -49,6 +50,7 @@ body {
   margin: 0;
   padding: 0;
   place-items: center;
+  color: var(--text-card)
 }
 
 h1 {

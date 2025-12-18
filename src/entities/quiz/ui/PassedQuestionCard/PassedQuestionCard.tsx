@@ -30,8 +30,8 @@ export const PassedQuestionCard = ({ imageSrc, title, flag, id } : PropsType) =>
                         ) 
                         : 
                         (
-                            <button style={{color: '#6A0BFF', backgroundColor: '#f8f6ff'}} className={styles.learnedButton}>
-                                <LikeIcon fill={'#6A0BFF'} />
+                            <button style={{color: 'var(--main-yeahub)', backgroundColor: 'var(--background-color-secondary)'}} className={styles.learnedButton}>
+                                <LikeIcon fill='var(--main-yeahub)' />
                                 <span>Знаю</span>
                             </button>
                         )

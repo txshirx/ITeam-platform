@@ -1,7 +1,7 @@
 .stoppedButton {
     padding: 20px 40px;
-    background-color: #ffcfdb;
-    border: none;
-    color: red;
+    background-color: var(--background-color-secondary);
+    border-color: rgb(255, 53, 53);
+    color: rgb(255, 53, 53);
 }
 

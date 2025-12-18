@@ -40,12 +40,12 @@ export const LearnedButtons = ({ id } : { id: number }) => {
 
     return (
         <div className={styles.buttonsContainer}>
-            <button style={status?.isAnsweredStatus === IsAnsweredStatus.NOT_LEARNED ? { backgroundColor: '#f8f6ff', color: '#6A0BFF' } : {}} onClick={() => handleIsNotLearned()} className={styles.learnedButton}>
-                <DislikeIcon fill={status?.isAnsweredStatus === IsAnsweredStatus.NOT_LEARNED ? '#6A0BFF' : undefined} />
+            <button style={status?.isAnsweredStatus === IsAnsweredStatus.NOT_LEARNED ? { backgroundColor: 'var(--main-yeahub)', color: 'var(--background-color-secondary)' } : {}} onClick={() => handleIsNotLearned()} className={styles.learnedButton}>
+                <DislikeIcon fill={status?.isAnsweredStatus === IsAnsweredStatus.NOT_LEARNED ? 'var(--text-color-in-main)' : undefined} />
                 <span>Не знаю</span>
             </button>
-            <button style={status?.isAnsweredStatus === IsAnsweredStatus.LEARNED ? { backgroundColor: '#f8f6ff', color: '#6A0BFF' } : {}} onClick={() => handleIsLearned()} className={styles.learnedButton}>
-                <LikeIcon fill={status?.isAnsweredStatus === IsAnsweredStatus.LEARNED ? '#6A0BFF' : undefined} />
+            <button style={status?.isAnsweredStatus === IsAnsweredStatus.LEARNED ? { backgroundColor: 'var(--main-yeahub)', color: 'var(--background-color-secondary)' } : {}} onClick={() => handleIsLearned()} className={styles.learnedButton}>
+                <LikeIcon fill={status?.isAnsweredStatus === IsAnsweredStatus.LEARNED ? 'var(--text-color-in-main)' : undefined} />
                 <span>Знаю</span>
             </button>
         </div>

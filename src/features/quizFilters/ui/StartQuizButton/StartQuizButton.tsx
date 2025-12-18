@@ -20,12 +20,12 @@ export const StartQuizButton = ({ title, params } : { title: string, params: Fil
             setIsActive(true)
             setQuestions(result.questions)
             setActiveQuestion(1)
-            navigate(ROUTES.QUIZ)
+            navigate(ROUTES.QUIZ.MAIN)
         }
     }
 
     return (
-        <button disabled={isLoading} style={{ backgroundColor: isLoading ? '#D1D1D1' : '' }} onClick={() => handleStartQuiz()} className={styles.startQuizButton}>
+        <button disabled={isLoading} style={{ backgroundColor: isLoading ? '#00530fff' : '' }} onClick={handleStartQuiz} className={styles.startQuizButton}>
             <span>{title}</span>
         </button>
     )
