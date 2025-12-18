@@ -15,7 +15,7 @@ export const CompleteButton = () => {
     const handleComplete = () => {
         setIsActive(false)
         setAnswered(0)
-        navigate(ROUTES.QUIZ_RESULT, { replace: true })
+        navigate(ROUTES.QUIZ.RESULT, { replace: true })
     }
 
     const handleClearAnswered = (id: number) => {
@@ -28,6 +28,6 @@ export const CompleteButton = () => {
     }
 
     return (
-        <button onClick={() => handleComplete()} className={styles.completeButton}>Проверить</button>
+        <button onClick={handleComplete} className={styles.completeButton}>Проверить</button>
     )
 }

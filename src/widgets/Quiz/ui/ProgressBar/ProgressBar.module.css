@@ -1,13 +1,13 @@
 .progressBarContainer {
     margin-inline: auto;
+    color: var(--text-card)
 }
 
 .progressBar {
     width: 1000px;
     border-radius: 24px;
     padding: 24px 30px;
-    box-shadow: 0px 4px 10px 0px #6A63761A;
-    background-color: white;
+    background-color: var(--background-color-secondary);
     display: flex;
     flex-direction: column;
     align-self: start;
@@ -24,7 +24,7 @@
 .line {
     width: 1000px;
     height: 3px;
-    background-color: #E1CEFF;
+    background-color: var(--main-yeahub-secondary);
 }
 
 .progressLine {

@@ -19,7 +19,7 @@ export const ButtonRestart = () => {
         setAactiveQuestion(1)
         setIsActive(true)
         clearAnswered()
-        navigate(ROUTES.QUIZ)
+        navigate(ROUTES.QUIZ.MAIN)
     }
 
     const handleClearAnswered = (id: number) => {

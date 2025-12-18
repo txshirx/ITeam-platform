@@ -8,11 +8,11 @@ export const StoppedButton = () => {
 
     const handleStopped = () => {
         clearLocalStorage()
-        navigate(ROUTES.QUIZ_CREATE, { replace: true })
+        navigate(ROUTES.QUIZ.CREATE, { replace: true })
     }
 
     return (
-        <button onClick={() => handleStopped()} className={style.stoppedButton}>
+        <button onClick={handleStopped} className={style.stoppedButton}>
             <span>Завершить</span>
         </button>
     )

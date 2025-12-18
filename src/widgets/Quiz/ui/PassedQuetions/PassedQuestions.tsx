@@ -16,7 +16,6 @@ export const PassedQuestions = () => {
                 
                 {questions?.map(item => {
                     const status = getStorageValue<IsAnsweredStatusType>(`${STORAGE_KEYS.PASSED_QUESTIONS}_${item.id}`)
-                    console.log(status)
                     return (
                         <PassedQuestionCard
                             key={item.id}

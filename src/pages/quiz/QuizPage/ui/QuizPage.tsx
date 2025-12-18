@@ -1,6 +1,6 @@
 import { Header } from "@/widgets/Header"
 import styles from './QuizPage.module.css'
-import { CompleteButton, LearnedButtons, StoppedButton, SwitchQuestion } from "@/features/quiz"
+import { CompleteButton, LearnedButtons, NextButton, StoppedButton, SwitchQuestion } from "@/features/quiz"
 import { useLocalStorage } from "@/shared/hooks"
 import { STORAGE_KEYS } from "@/shared/constants"
 import type { Question } from "@/shared/config/api/types"
@@ -18,13 +18,14 @@ const QuizPage = () => {
             <ProgressBar answeredQuestions={answeredQuestions ? answeredQuestions : 0} maxQuestions={questions?.length as number}/>
             <div className={styles.quizContainer}>
                 {questions?.filter((_, ind) => currentQuestion && ind === currentQuestion - 1).map(item => (
-                    <QuizQuestionCard 
+                    <QuizQuestionCard
                         key={item.id}
-                        title={item ? item.title : ''} 
+                        title={item ? item.title : ''}
                         LearnedButtons={LearnedButtons}
                         shortAnswer={item ? item.shortAnswer : ''}
                         CompleteButton={questions.length === answeredQuestions ? CompleteButton : StoppedButton}
                         SwitchQuestion={SwitchQuestion}
+                        NextButton={questions.length === currentQuestion ? undefined : NextButton}
                         id={item.id}
                     />
                 ))}

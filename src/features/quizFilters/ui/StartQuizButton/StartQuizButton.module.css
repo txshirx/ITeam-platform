@@ -2,9 +2,10 @@
     margin-top: 40px;
     background-color: var(--main-yeahub);
     max-width: fit-content;
-    color: #fff;
+    color: var(--text-color-in-main);
     padding: 20px 40px;
     position: relative;
     bottom: 0;
-    right: 0
+    right: 0;
+    border: none;
 }
