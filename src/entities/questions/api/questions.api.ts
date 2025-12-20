@@ -1,11 +1,19 @@
 import { baseApi } from "@/shared/config/api/baseApi";
-import type { Question } from "@/shared/config/api/types";
+import type { FiltersParamsType, Question } from "@/shared/config/api/types";
 import { ENDPOINTS } from "@/shared/config/model/endpoints";
 
 export const questionsQuery = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getQuestions: builder.query<{data: Question[]}, void>({
-            query: () => ENDPOINTS.QUESTIONS,
+        getQuestions: builder.query<{data: Question[]}, FiltersParamsType>({
+            query: (params) => {
+                const filterParams = params ? Object.fromEntries(
+                    Object.entries(params).filter(([_, value]) => !(Array.isArray(value) && value.length === 0))
+                ) : {}
+                return {
+                    url: ENDPOINTS.QUESTIONS,
+                    params: filterParams
+                }
+            },
             providesTags: ['QuestionsList']
         })
     })

@@ -4,8 +4,9 @@
     padding: 20px;
     border-radius: 24px;
     background-color: var(--background-color-secondary);
+    max-height: fit-content;
 }
 
 .listWrapper h2 {
-    color: var(--main-yeahub)
+    margin: 10px 10px;
 }

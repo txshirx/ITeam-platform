@@ -1,7 +1,7 @@
-import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
+import { FilterButton } from '@/shared/ui/components'
 import styles from './ChooseSkills.module.css'
 import { skillsApi } from '@/entities/skills'
-import { FilterButton } from '@/shared/ui/components'
+import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
 
 
 export const ChooseSkills = () => {

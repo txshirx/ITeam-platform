@@ -1,10 +1,23 @@
-import type { FiltersParamsType, ModeType } from "@/shared/config/api/types";
 import { useCallback, useEffect, useMemo } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { ROUTES } from "@/shared/config/router/routes";
 import { DEFAULT_MODE, DEFAULT_LIMIT_VALUE, REACT_DEVELOPER_ID } from "@/shared/constants";
 
-export const useFilterParams = () => {
+
+type ModeType = 'NEW' | 'REPEAT' | 'RANDOM'
+
+export interface FilterFromUser {
+	skills?: number[];
+	complexity?: number[];
+	rate?: number[];
+	title?: string;
+	page?: number;
+	specialization?: number | number[];
+    limit?: number,
+    mode?: ModeType,
+}
+
+export const useFilterQuery = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const params = new URLSearchParams(searchParams)
     const location = useLocation()
@@ -20,22 +33,29 @@ export const useFilterParams = () => {
             if (!searchParams.get('specializations')) {
                 params.set('specializations', String(REACT_DEVELOPER_ID))
             }
-            setSearchParams(params)
+        } else if (location.pathname === ROUTES.QUESTIONS) {
+            if (!searchParams.get('specializations')) {
+                params.set('specializations', String(REACT_DEVELOPER_ID))
+            }
         }
+
+        setSearchParams(params)
     }, [searchParams])
 
-    const filtersParams: FiltersParamsType = useMemo(() => {
-        const filter: FiltersParamsType = {
+    const filtersParams: FilterFromUser = useMemo(() => {
+        const filter: FilterFromUser = {
             skills: searchParams.get('skills') ? searchParams.get('skills')!.split(',').map(item => Number(item)) : [],
-            specializations: searchParams.get('specializations') ? Number(searchParams!.get('specializations')) : REACT_DEVELOPER_ID,
+            specialization: searchParams.get('specialization') ? Number(searchParams!.get('specialization')) : REACT_DEVELOPER_ID,
             limit: (searchParams.get('limit') && Number(searchParams.get('limit')) > 0 && Number(searchParams.get('limit')) < 100)? Number(searchParams!.get('limit')) : DEFAULT_LIMIT_VALUE,
             complexity: searchParams.get('complexity') ? searchParams.get('complexity')!.split(',').map(item => Number(item)) : [],
-            mode: searchParams.get('mode') ? searchParams.get('mode') as ModeType : DEFAULT_MODE
+            mode: searchParams.get('mode') ? searchParams.get('mode') as ModeType : DEFAULT_MODE,
+            rate: searchParams.get('rate') ? searchParams.get('rate')!.split(',').map(item => Number(item)) : [],
+            title: searchParams.get('title') ? searchParams.get('title') as string : '',
         }
         return filter
-    }, [searchParams])
+    }, [searchParams])  
 
-    const updateFilters = useCallback((filter: keyof FiltersParamsType, value: number | number[] | ModeType) => {
+    const updateFilters = useCallback((filter: keyof FilterFromUser, value: number | number[] | string | ModeType) => {
         const params = new URLSearchParams(searchParams)
         if (Array.isArray(value)) {
             const validValue = value.map(item => String(item))

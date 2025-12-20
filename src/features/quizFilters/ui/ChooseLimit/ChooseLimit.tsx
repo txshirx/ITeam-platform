@@ -1,18 +1,18 @@
 import { MinusIcon, PlusIcon } from '@/shared/ui/icons'
 import styles from './ChooseLimit.module.css'
-import { useFilterParams } from '../../model/hooks/useFilterParams'
+import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
 
 export const ChooseLimit = () => {
-    const { updateFilters, filtersParams } = useFilterParams()
+    const { updateFilters, filtersParams } = useFilterQuery()
 
     const plusHandler = () => {
-        if (filtersParams.limit < 100) {
+        if (filtersParams.limit && filtersParams.limit < 100) {
             updateFilters('limit', filtersParams.limit + 1)
         }
     }
 
     const minusHandler = () => {
-        if (filtersParams.limit > 1) {
+        if (filtersParams.limit && filtersParams.limit > 1) {
             updateFilters('limit', filtersParams.limit - 1)
         }
     }

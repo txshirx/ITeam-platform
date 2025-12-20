@@ -6,7 +6,7 @@ const initialState: FiltersParamsType = {
     skills: [],
     complexity: [],
     mode: 'RANDOM',
-    specializations: 11
+    specialization: 11
 }
 
 export const quizFiltersSlice = createSlice({
@@ -14,24 +14,26 @@ export const quizFiltersSlice = createSlice({
     initialState: initialState,
     reducers: {
         incrementCount: (state) => {
-            state.limit = state.limit + 1
+            if (state.limit) {
+                state.limit = state.limit + 1
+            }
         },
         decrementCount: (state) => {
-            if (state.limit !== 1) {
+            if (state.limit && state.limit !== 1) {
                 state.limit = state.limit - 1
             }
         },
         changeComplexity: (state, action: PayloadAction<{ value: number[] }>) => {
-            if (!state.complexity.some(item => action.payload.value.includes(item))) {
+            if (state.complexity && !state.complexity.some(item => action.payload.value.includes(item))) {
                 state.complexity = [...state.complexity, ...action.payload.value]
-            } else (
+            } else if (state.complexity) (
                 state.complexity = state.complexity.filter(item => !action.payload.value.includes(item))
             )
         },
         changeSkills: (state, action: PayloadAction<{ skill: number }>) => {
-            if (!state.skills.includes(action.payload.skill)) {
+            if (state.skills && !state.skills.includes(action.payload.skill)) {
                 state.skills = [...state.skills, action.payload.skill]
-            } else {
+            } else if (state.skills) {
                 state.skills = state.skills.filter(item => item !== action.payload.skill)
             }
         },
@@ -39,7 +41,7 @@ export const quizFiltersSlice = createSlice({
             state.mode = action.payload.mode
         },
         changeSpecializations: (state, action: PayloadAction<{ id: number }>) => {
-            state.specializations = action.payload.id
+            state.specialization = action.payload.id
         }   
     },
     selectors: {

@@ -3,7 +3,6 @@ import styles from './NextButton.module.css'
 import { STORAGE_KEYS } from '@/shared/constants'
 import type { LearnedButtonState } from '@/shared/config/model/types'
 import type { Question } from '@/shared/config/api/types'
-import { useState } from 'react'
 import clsx from 'clsx'
 import { IsAnsweredStatus } from '../../model/constants'
 

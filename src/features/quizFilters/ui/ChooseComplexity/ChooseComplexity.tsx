@@ -1,11 +1,10 @@
-
 import styles from './ChooseComplexity.module.css'
-import { useFilterParams } from '../../model/hooks/useFilterParams'
-import { FilterButton } from "../FilterButton/FilterButton"
 import { COMPLEXITY } from '@/shared/constants'
+import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
+import { FilterButton } from '@/shared/ui/components'
 
 export const ChooseComplexity = () => {
-    const { updateFilters } = useFilterParams()
+    const { updateFilters } = useFilterQuery()
 
     return (
         <div >

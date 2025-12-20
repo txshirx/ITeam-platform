@@ -1,5 +1,6 @@
 import { baseApi } from "@/shared/config/api/baseApi";
 import type { FiltersParamsType, Question } from "@/shared/config/api/types";
+import { ENDPOINTS } from "@/shared/config/model/endpoints";
 
 export const quizQuery = baseApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -10,7 +11,7 @@ export const quizQuery = baseApi.injectEndpoints({
                 ) : {}
 
                 return {
-                    url: '/interview-preparation/quizzes/mock/new',
+                    url: ENDPOINTS.QUIZ,
                     params: filterParams
                 }
             },
