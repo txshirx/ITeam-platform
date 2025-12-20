@@ -4,7 +4,6 @@ import { ChooseSkills } from "./ChooseSkills/ChooseSkills"
 import styles from './QuizFilter.module.css'
 import { ChooseSpecializations } from "./ChooseSpecializations/ChooseSpecializations"
 import { ChooseLimit } from "./ChooseLimit/ChooseLimit"
-import { useFilterParams } from "../model/hooks/useFilterParams"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useLocalStorage } from "@/shared/hooks"
@@ -12,9 +11,10 @@ import { STORAGE_KEYS } from "@/shared/constants"
 import type { Question } from "@/shared/config/api/types"
 import { ROUTES } from "@/shared/config/router/routes"
 import { StartQuizButton } from "./StartQuizButton/StartQuizButton"
+import { useFilterQuery } from "@/shared/hooks/useFilterQuery/useFilterQuery"
 
 export const QuizFilters = () => {
-    const { filtersParams } = useFilterParams() 
+    const { filtersParams } = useFilterQuery() 
     const { storageValue: questions } = useLocalStorage<Question[]>(STORAGE_KEYS.QUESTIONS_KEY)
     const navigate = useNavigate()
     const { storageValue: quizIsActive } = useLocalStorage(STORAGE_KEYS.QUIZ_IS_ACTIVE)

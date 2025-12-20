@@ -1,0 +1,18 @@
+.skillsContainer {
+    display: flex;
+    width: 500px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filterItem {
+    display: flex;
+    flex-direction: column;
+    gap: 20
+}
+
+.filterItem h3 {
+    color: var(--text-card);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--main-yeahub);
+}

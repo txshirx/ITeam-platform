@@ -1,11 +1,11 @@
+import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
 import styles from './ChooseSpecializations.module.css'
-import { useFilterParams } from '../../model/hooks/useFilterParams'
-import { FilterButton } from '../FilterButton/FilterButton'
 import { specializationsApi } from '@/entities/specializations'
+import { FilterButton } from '@/shared/ui/components'
 
 export const ChooseSpecializations = () => {
     const { data, isLoading } = specializationsApi.useGetSpecializationsQuery()
-    const { updateFilters } = useFilterParams()
+    const { updateFilters } = useFilterQuery()
 
     if (isLoading) return <>Loading...</>
 
@@ -15,7 +15,7 @@ export const ChooseSpecializations = () => {
                 <h3>Специализация</h3>
                 <div className={styles.specializationsContainer}>
                     {data?.data.map(item => (
-                        <FilterButton action={() => updateFilters('specializations', item.id)} key={item.id} title={item.title} filter='specializations' data={String(item.id)}/>
+                        <FilterButton action={() => updateFilters('specialization', item.id)} key={item.id} title={item.title} filter='specialization' data={String(item.id)}/>
                     ))}
                 </div>  
                 

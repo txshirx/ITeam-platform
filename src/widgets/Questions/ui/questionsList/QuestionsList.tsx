@@ -3,14 +3,37 @@ import { questionsQuery } from "@/entities/questions";
 
 import styles from './QuestionsList.module.css'
 import { QuestionsListSkeleton } from "./QuestionList.skeleton";
+import { useFilterQuery } from "@/shared/hooks/useFilterQuery/useFilterQuery";
+import { useEffect, useState } from "react";
 
 export const QuestionsList = () => { 
-    const { data, isLoading, isError, error, isFetching, isUninitialized } = questionsQuery.useGetQuestionsQuery()
+    const { filtersParams } = useFilterQuery()
+    const { data, isLoading, isError, isFetching, isUninitialized } = questionsQuery.useGetQuestionsQuery(filtersParams)
 
-    const isLoad = isLoading || isFetching || isUninitialized
+    const [isLoad, setIsLoad] = useState(isLoading || isFetching || isUninitialized || data?.data.length === 0)
 
-    if (isLoad || data?.data.length === 0) {
+    useEffect(() => {
+        let id: ReturnType<typeof setTimeout>;
+        const delayHandler = () => {
+            id = setTimeout(() => setIsLoad(false), 5000)
+        }
+
+        if (data?.data.length === 0) {
+            delayHandler()
+        } 
+ 
+        return () => clearTimeout(id)
+
+    }, [data?.data.length])
+
+    if (isLoad) {
         return <QuestionsListSkeleton/>
+    } else if (data?.data.length === 0) {
+        return (
+            <div className={styles.listWrapper}>
+                <h2>По вашему запросу ничего не найдено :(</h2>
+            </div>
+        )
     }
 
     if (isError) {
@@ -23,6 +46,7 @@ export const QuestionsList = () => {
 
     return (
         <div className={styles.listWrapper}>
+            <h2>Вопросы</h2>
             {
                 data?.data.map(item => (
                     <PreviewQuestionCard

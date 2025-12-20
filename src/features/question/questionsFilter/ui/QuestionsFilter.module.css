@@ -1,0 +1,10 @@
+.container {
+    margin-top: 140px;
+    background-color: var(--background-color-secondary);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    max-height: min-content;
+    max-width: fit-content;
+}
