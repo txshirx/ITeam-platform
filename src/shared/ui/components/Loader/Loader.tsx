@@ -10,14 +10,14 @@ interface SpinnerProps {
   className?: string;
 }
 
-export default function Loader({
+export const Loader = ({
     size = 32,
     strokeWidth = 4,
     color = '#003E33',
     speed = 1,
     label = 'Loading...',
     className,
-}: SpinnerProps) {
+}: SpinnerProps) => {
     return (
         <div
             role="status"

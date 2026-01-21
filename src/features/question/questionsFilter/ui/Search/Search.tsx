@@ -1,11 +1,12 @@
-
 import { useFilterQuery } from '@/shared/hooks/useFilterQuery/useFilterQuery'
 import styles from './Search.module.css'
 import React, { useEffect, useState } from 'react'
 import { useDebaunce } from '@/shared/hooks/useDebaunce/useDebaunce'
+import { useSearchParams } from 'react-router-dom'
 
 export const Search = () => {
-    const [inputValue, setInputValue] = useState('')
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [inputValue, setInputValue] = useState(searchParams.get('title') ?? '')
     const debauncedValue = useDebaunce(inputValue, 500)
 
     const { updateFilters } = useFilterQuery()

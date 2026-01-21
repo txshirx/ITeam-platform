@@ -1,0 +1,415 @@
+:root {
+  /* Основные цвета Yeahub */
+  --main-yeahub: #1ac737;
+  --main-yeahub-secondary: #2b4d31;
+  --background-color-secondary: #282828;
+  --background-color-main: #1b1b1b;
+  --progress-bar-secondary: #E1CEFF;
+  --text-filter: #303030;
+  --text-main: #01de26;
+  --text-card: #d7d7d7;
+  --text-color-in-main: #1b1b1b;
+  
+  /* Производные цвета для гармонии */
+  --brand-gradient: linear-gradient(135deg, var(--main-yeahub), #16a12e);
+  --card-bg: rgba(40, 40, 40, 0.9);
+  --card-bg-light: rgba(43, 77, 49, 0.3);
+  --card-bg-dark: rgba(27, 27, 27, 0.95);
+  --border-glow: rgba(26, 199, 55, 0.3);
+  --hover-glow: rgba(26, 199, 55, 0.15);
+  --shadow-brand: rgba(26, 199, 55, 0.25);
+  --text-secondary: #a0a0a0;
+  --text-gray: #808080;
+  --border-color: #404040;
+  --transition-duration: 300ms;
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--hover-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--border-glow);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    var(--background-color-main) 0%,
+    #151515 25%,
+    var(--background-color-main) 50%,
+    #151515 75%,
+    var(--background-color-main) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--text-card);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.app ::selection {
+  background-color: var(--main-yeahub);
+  color: var(--text-color-in-main);
+}
+
+.main {
+  padding-top: 5rem;
+}
+
+/* Секции */
+.sectionDark {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg, 
+    var(--background-color-main) 0%,
+    rgba(27, 27, 27, 0.95) 50%,
+    var(--background-color-main) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionDark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--main-yeahub), 
+    transparent);
+  opacity: 0.5;
+}
+
+.sectionCard {
+  padding: 6rem 1.5rem;
+
+}
+
+.sectionCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(26, 199, 55, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sectionTestimonials {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg,
+    rgba(40, 40, 40, 0.2) 0%,
+    rgba(43, 77, 49, 0.15) 100%);
+  position: relative;
+}
+
+.pricingSection {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg,
+    var(--background-color-main) 0%,
+    #202020 100%);
+  border-top: 1px solid rgba(40, 40, 40, 0.5);
+}
+
+/* Контейнеры */
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.containerNarrow {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA секция */
+.ctaSection {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, 
+    var(--main-yeahub) 0%,
+    #16a12e 50%,
+    var(--main-yeahub) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.ctaContainer {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+  color: var(--text-color-in-main);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ctaDescription {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: rgba(27, 27, 27, 0.9);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.ctaButton {
+  background: var(--text-color-in-main);
+  color: var(--main-yeahub);
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+  box-shadow: 
+    var(--shadow-xl),
+    0 0 20px rgba(26, 199, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(26, 199, 55, 0.4);
+  color: var(--text-main);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(-1px);
+}
+
+/* Общие стили для текста */
+.app h1, .app h2, .app h3, .app h4 {
+  color: var(--text-card);
+}
+
+.app p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Стили для ссылок и кнопок */
+.app a,
+.app button {
+  transition: all var(--transition-duration) ease;
+}
+
+
+/* Адаптивность */
+@media (min-width: 768px) {
+  .sectionDark,
+  .sectionCard,
+  .sectionTestimonials,
+  .pricingSection,
+  .ctaSection {
+    padding: 6rem 3rem;
+  }
+
+  .ctaTitle {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding-top: 4rem;
+  }
+
+  .sectionDark,
+  .sectionCard,
+  .sectionTestimonials,
+  .pricingSection,
+  .ctaSection {
+    padding: 4rem 1rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .ctaDescription {
+    font-size: 1.125rem;
+  }
+
+  .ctaButton {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Стили для скроллбара */
+.app::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app::-webkit-scrollbar-track {
+  background: var(--background-color-secondary);
+}
+
+.app::-webkit-scrollbar-thumb {
+  background: var(--main-yeahub-secondary);
+  border-radius: 5px;
+}
+
+.app::-webkit-scrollbar-thumb:hover {
+  background: var(--main-yeahub);
+}
+
+/* Анимации и переходы */
+@media (prefers-reduced-motion: reduce) {
+  .app,
+  .ctaButton,
+  .app a,
+  .app button {
+    animation: none;
+    transition: none;
+  }
+  
+  .app {
+    background: var(--background-color-main);
+  }
+  
+  .sectionDark {
+    background: var(--background-color-main);
+  }
+  
+  .sectionCard {
+    background: var(--background-color-secondary);
+  }
+  
+  .ctaSection {
+    background: var(--main-yeahub);
+  }
+}
+
+/* Темная тема по умолчанию (уже темная) */
+@media (prefers-color-scheme: dark) {
+  .app {
+    background: var(--background-color-main);
+  }
+}
+
+/* Градиентные текстовые эффекты */
+.gradientText {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Карточки */
+.cardGlow {
+  border: 1px solid rgba(40, 40, 40, 0.5);
+  background: var(--card-bg);
+  transition: all var(--transition-duration) ease;
+}
+
+.cardGlow:hover {
+  border-color: var(--main-yeahub);
+  box-shadow: 0 0 30px var(--hover-glow);
+  transform: translateY(-5px);
+}
+
+/* Декоративные элементы */
+.accentLine {
+  height: 3px;
+  background: var(--brand-gradient);
+  width: 60px;
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--main-yeahub);
+  box-shadow: 0 0 10px var(--main-yeahub);
+  animation: glowPulse 2s ease-in-out infinite;
+}

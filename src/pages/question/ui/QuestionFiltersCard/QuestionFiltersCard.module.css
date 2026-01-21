@@ -4,7 +4,7 @@
     align-self: flex-start;
     flex-direction: column;
     gap: 24px;
-    background-color: white;
+    background-color: var(--background-color-secondary);
     border-radius: 24px;
     padding: 24px;
 }

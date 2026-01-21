@@ -5,14 +5,21 @@ import styles from './QuestionsList.module.css'
 import { QuestionsListSkeleton } from "./QuestionList.skeleton";
 import { useFilterQuery } from "@/shared/hooks/useFilterQuery/useFilterQuery";
 import { useEffect, useState } from "react";
+import Pagination from "./Pagination/Pagination";
 
 export const QuestionsList = () => { 
-    const { filtersParams } = useFilterQuery()
-    const { data, isLoading, isError, isFetching, isUninitialized } = questionsQuery.useGetQuestionsQuery(filtersParams)
+    const { filtersParams, updateFilters } = useFilterQuery()
+    const { data, isLoading, isError } = questionsQuery.useGetQuestionsQuery(filtersParams)
+    const [isLoad, setIsLoad] = useState(isLoading || data?.data.length === 0)
 
-    const [isLoad, setIsLoad] = useState(isLoading || isFetching || isUninitialized || data?.data.length === 0)
+    const changePageHandler = (value: number) => {
+        updateFilters('page', value)
+    }
 
+    console.log(data)
     useEffect(() => {
+
+        
         let id: ReturnType<typeof setTimeout>;
         const delayHandler = () => {
             id = setTimeout(() => setIsLoad(false), 5000)
@@ -20,11 +27,13 @@ export const QuestionsList = () => {
 
         if (data?.data.length === 0) {
             delayHandler()
-        } 
+        } else {
+            setIsLoad(isLoading)
+        }
  
         return () => clearTimeout(id)
 
-    }, [data?.data.length])
+    }, [data?.data, data?.data.length])
 
     if (isLoad) {
         return <QuestionsListSkeleton/>
@@ -59,6 +68,12 @@ export const QuestionsList = () => {
                     />
                 ))
             }
+            <Pagination 
+                total={data?.total ?? 0}
+                limit={data?.limit ?? 0}
+                page={data?.page ?? 0}
+                onPageChange={changePageHandler}
+            />
         </div>
     )
 } 

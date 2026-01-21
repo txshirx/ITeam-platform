@@ -15,6 +15,7 @@ export interface FilterFromUser {
 	specialization?: number | number[];
     limit?: number,
     mode?: ModeType,
+    total?: number;
 }
 
 export const useFilterQuery = () => {
@@ -30,12 +31,12 @@ export const useFilterQuery = () => {
             if (!searchParams.get('limit') || Number(searchParams.get('limit')) > 100 || Number(searchParams.get('limit')) <= 0 || !Number(searchParams.get('limit'))) {
                 params.set('limit', String(DEFAULT_LIMIT_VALUE))
             }
-            if (!searchParams.get('specializations')) {
-                params.set('specializations', String(REACT_DEVELOPER_ID))
+            if (!searchParams.get('specialization')) {
+                params.set('specialization', String(REACT_DEVELOPER_ID))
             }
         } else if (location.pathname === ROUTES.QUESTIONS) {
-            if (!searchParams.get('specializations')) {
-                params.set('specializations', String(REACT_DEVELOPER_ID))
+            if (!searchParams.get('specialization')) {
+                params.set('specialization', String(REACT_DEVELOPER_ID))
             }
         }
 
@@ -51,6 +52,7 @@ export const useFilterQuery = () => {
             mode: searchParams.get('mode') ? searchParams.get('mode') as ModeType : DEFAULT_MODE,
             rate: searchParams.get('rate') ? searchParams.get('rate')!.split(',').map(item => Number(item)) : [],
             title: searchParams.get('title') ? searchParams.get('title') as string : '',
+            page: searchParams.get('page') ? Number(searchParams.get('page')) : undefined,
         }
         return filter
     }, [searchParams])  

@@ -1,0 +1,194 @@
+:root {
+  --main-yeahub: #1ac737;
+  --main-yeahub-secondary: #2b4d31;
+  --background-color-secondary: #282828;
+  --background-color-main: #1b1b1b;
+  --text-main: #01de26;
+  --text-card: #d7d7d7;
+  --border-glow: rgba(26, 199, 55, 0.3);
+  --hover-glow: rgba(26, 199, 55, 0.15);
+  --transition-duration: 300ms;
+}
+
+.paginationContainer {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.navButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg,
+    rgba(40, 40, 40, 0.9) 0%,
+    rgba(27, 27, 27, 0.95) 100%);
+  border: 1px solid rgba(40, 40, 40, 0.7);
+  color: var(--text-card);
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+.navButton:hover:not(:disabled) {
+  border-color: var(--main-yeahub);
+  background: linear-gradient(135deg,
+    rgba(26, 199, 55, 0.1) 0%,
+    rgba(40, 40, 40, 0.9) 100%);
+  box-shadow: 0 0 15px var(--hover-glow);
+  transform: translateY(-2px);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.navIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.pagesWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pageButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+  border: 1px solid;
+}
+
+/* Активная страница */
+.pageButton.active {
+  background: linear-gradient(135deg,
+    var(--main-yeahub) 0%,
+    var(--main-yeahub-secondary) 100%);
+  color: var(--background-color-main);
+  border-color: var(--main-yeahub);
+  box-shadow: 0 0 20px var(--border-glow);
+}
+
+.pageButton.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--border-glow);
+}
+
+/* Неактивная страница */
+.pageButton.inactive {
+  background: linear-gradient(135deg,
+    rgba(40, 40, 40, 0.8) 0%,
+    rgba(27, 27, 27, 0.9) 100%);
+  color: var(--text-card);
+  border-color: rgba(40, 40, 40, 0.5);
+}
+
+.pageButton.inactive:hover {
+  border-color: var(--main-yeahub);
+  background: linear-gradient(135deg,
+    rgba(26, 199, 55, 0.1) 0%,
+    rgba(40, 40, 40, 0.9) 100%);
+  box-shadow: 0 0 10px var(--hover-glow);
+  transform: translateY(-2px);
+}
+
+/* Многоточие */
+.pageButton.ellipsis {
+  background: transparent;
+  border-color: transparent;
+  color: #808080;
+  cursor: default;
+  font-weight: 400;
+}
+
+.pageButton.ellipsis:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Анимация пульсации для активной страницы */
+@keyframes pulseActive {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--border-glow);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--main-yeahub);
+  }
+}
+
+.pageButton.active {
+  animation: pulseActive 2s ease-in-out infinite;
+}
+
+/* Фокус состояния для доступности */
+.navButton:focus,
+.pageButton:focus {
+  outline: 2px solid var(--main-yeahub);
+  outline-offset: 2px;
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+  .pagination {
+    gap: 0.25rem;
+  }
+  
+  .navButton {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+  }
+  
+  .pageButton {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .pagesWrapper {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Стили для отключенных состояний */
+@media (prefers-reduced-motion: reduce) {
+  .navButton,
+  .pageButton {
+    transition: none;
+    animation: none;
+  }
+}

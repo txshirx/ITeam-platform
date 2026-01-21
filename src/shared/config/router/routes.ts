@@ -6,5 +6,7 @@ export const ROUTES = {
         RESULT: '/result', 
     },
     QUESTION: '/questions/:questionId',
-    QUESTIONS: '/questions'
+    QUESTIONS: '/questions',
+    AUTH: '/register',
+    LOGIN: '/login'
 } as const 

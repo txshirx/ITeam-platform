@@ -17,7 +17,7 @@ export const RatingItem = ({ rate, complexity, title} : RatingProps) => {
                 :
                 (
                     <div>
-                        <span style={{ display: "flex", gap: 6, alignItems: 'center' }}>{rate ? 'Рейтинг' : 'Сложность'}<span style={{ backgroundColor: '#6A0BFF', padding: '2px 4px', borderRadius: 4, color: 'white'}}>{(rate ? rate : complexity) ?? 'неизвестно'}</span></span>
+                        <span style={{ display: "flex", gap: 6, alignItems: 'center' }}>{rate ? 'Рейтинг' : 'Сложность'}<span style={{ backgroundColor: 'var(--main-yeahub)', padding: '2px 4px', borderRadius: 4, color: 'white'}}>{(rate ? rate : complexity) ?? 'неизвестно'}</span></span>
                     </div>
                 )
             }
