@@ -9,7 +9,6 @@ type QuestionsPaginationProps = {
 export const QuestionsPagination = ({
     onChangePage,
     page,
-    totalPages
 }: QuestionsPaginationProps) => {
 
     const onNextPageClick = () => {

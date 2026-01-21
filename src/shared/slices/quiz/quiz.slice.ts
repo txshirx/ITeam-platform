@@ -11,7 +11,7 @@ const initialState: QuizType = {
     getNewQuizFlag: true,
     filterParams: {
         skills: [],
-        specializations: REACT_DEVELOPER_ID,
+        specialization: REACT_DEVELOPER_ID,
         mode: DEFAULT_MODE,
         complexity: [],
         limit: DEFAULT_LIMIT_VALUE

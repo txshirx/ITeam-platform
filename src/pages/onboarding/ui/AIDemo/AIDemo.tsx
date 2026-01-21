@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AIDemo.module.css';
-import { questionsQuery } from '@/entities/questions';
-import { Navigate, replace, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/shared/config/router/routes';
 
 
