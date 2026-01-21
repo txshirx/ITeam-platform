@@ -1,77 +1,334 @@
+:root {
+  --brand-color: #1ac737;
+  --dark-bg: #111827;
+  --card-bg: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-gray: #9ca3af;
+  --border-color: #374151;
+  --transition-duration: 300ms;
+  --header-height: 5rem;
+  --mobile-breakpoint: 768px;
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* УБИРАЕМ container_main, он не нужен */
+/* .container_main {
+  margin: 0 auto;
+} */
+
 .header {
-  height: 100px;
-  position: fixed;
-  top: 0;
+  width: 1200px; /* Ширина 100% */
+  z-index: 50;
+  transition: all var(--transition-duration) ease;
+  background-color: transparent;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.header.scrolled {
+  background-color: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .header.scrolled {
+    background-color: var(--dark-bg);
+  }
+}
+
+/* ИСПРАВЛЯЕМ КОНТЕЙНЕР */
+.container {
+  max-width: 1200px; /* Добавляем максимальную ширину */
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between; /* Меняем space-around на space-between */
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* ДОБАВЛЯЕМ ФЛЕКС-РАСПРЕДЕЛЕНИЕ ДЛЯ ДЕСКТОП НАВИГАЦИИ */
+.desktopNav {
+  max-width: fit-content;
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  flex: 1; /* Добавляем flex 1 чтобы занимал доступное пространство */
+  justify-content: end;
+  margin: 0 2rem; /* Отступы по бокам */
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+/* ДОБАВЛЯЕМ СТИЛИ ДЛЯ КНОПОК В ОТДЕЛЬНУЮ ГРУППУ */
+.authButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ОСТАВЛЯЕМ ВСЕ ОСТАЛЬНЫЕ СТИЛИ БЕЗ ИЗМЕНЕНИЙ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--transition-duration) ease;
+  flex-shrink: 0; /* Запрещаем лого сжиматься */
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logo:hover .logoIcon {
+  transform: rotate(12deg);
+}
+
+.logoIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--brand-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;  
+  color: var(--dark-bg);
+  transition: transform var(--transition-duration) ease;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.navLink {
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-duration) ease;
+  position: relative;
+  padding: 0.5rem 0;
+  white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+.navLink:hover {
+  color: var(--brand-color);
+}
+
+.navLink:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
   left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  background-color: var(--background-color-main);
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-color);
+  transition: width var(--transition-duration) ease, opacity var(--transition-duration) ease;
+  opacity: 0;
 }
 
-.headerContainer {
-  width: 1200px;
-  margin-inline: auto;
+.loginButton {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--brand-color);
+  color: var(--brand-color);
+  border-radius: 9999px;
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+  white-space: nowrap;
 }
 
-.headerInner {
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-  align-items: center;
+.loginButton:hover {
+  background-color: var(--brand-color);
+  color: var(--dark-bg);
 }
 
-.headerLeft {
-  display: flex;
-  gap: 50px;
-  min-width: 170px;
-  font-size: 22px;
-  font-weight: 800;
-  align-items: center;
-  color: var(--text-main);
-}
-
-.headerLogo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.headerNav {
-  display: flex;
-}
-
-.headerNav button {
-  font-size: 16px;
-  margin-right: 20px;
-  padding: 12px 12px 8px 12px;
-  background: none;
+.signUpButton {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--brand-color);
+  color: var(--dark-bg);
+  border-radius: 9999px;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  color: var(--main-yeahub);
+  transition: all var(--transition-duration) ease;
+  white-space: nowrap;
 }
 
-.headerNav button:last-child {
-  margin-right: 0;
+.signUpButton:hover {
+  opacity: 0.9;
 }
 
-.headerRight {
-  display: flex;
-  gap: 15px;
-}
-
-.headerLogin {
-  color: var(--main-yeahub);
+.mobileToggle {
+  display: block;
+  color: var(--text-primary);
+  padding: 0.5rem;
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.headerRegister {
-  border-radius: 12px;
-  padding: 13px 13px;
-  background-color: var(--main-yeahub);
-  color: var(--text-color-in-main);
+@media (min-width: 768px) {
+  .mobileToggle {
+    display: none;
+  }
+}
+
+.toggleIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mobileMenu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid var(--border-color);
+  animation: slideInFromTop var(--transition-duration) ease-out;
+}
+
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileNavLink {
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-duration) ease;
+}
+
+.mobileNavLink:hover {
+  color: var(--brand-color);
+}
+
+.mobileButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.mobileActionButton {
+  flex: 1;
+  padding: 0.75rem 0;
+  background-color: var(--brand-color);
+  color: var(--dark-bg);
+  border-radius: 0.75rem;
+  font-weight: 700;
   border: none;
   cursor: pointer;
+  transition: opacity var(--transition-duration) ease;
+}
+
+.mobileActionButton:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .logoIcon,
+  .navLink,
+  .loginButton,
+  .signUpButton,
+  .mobileActionButton {
+    transition: none;
+  }
+
+  .mobileMenu {
+    animation: fadeIn var(--transition-duration) ease-out;
+  }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  .header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+
+  .mobileMenu {
+    background-color: rgba(0, 0, 0, 0.95);
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (prefers-contrast: high) {
+  .brand-color {
+    color: #0056b3;
+  }
+
+  .navLink:hover {
+    text-decoration: underline;
+  }
+}
+
+@media print {
+  .header {
+    position: static;
+    background: white !important;
+    color: black !important;
+  }
+
+  .loginButton,
+  .signUpButton,
+  .mobileToggle {
+    display: none;
+  }
 }

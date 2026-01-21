@@ -1,0 +1,254 @@
+:root {
+  --brand-color: var(--main-yeahub);
+  --dark-bg: #111827;
+  --card-bg: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-gray: #9ca3af;
+  --border-color: #374151;
+  --transition-duration: 300ms;
+  --error-color: #ef4444;
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 2.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: var(--shadow-2xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.decorativeIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  opacity: 0.1;
+  transform: rotate(12deg);
+  animation: rotateSlow 20s linear infinite;
+}
+
+.iconSvg {
+  width: 8rem;
+  height: 8rem;
+  color: var(--brand-color);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.description {
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  max-width: 32rem;
+  line-height: 1.625;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .inputGroup {
+    flex-direction: row;
+  }
+}
+
+.input {
+  flex: 1;
+  background-color: var(--dark-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  outline: none;
+  color: var(--text-primary);
+  transition: border-color var(--transition-duration) ease;
+  font-size: 1rem;
+}
+
+.input:focus {
+  border-color: var(--brand-color);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generateButton {
+  background-color: var(--brand-color);
+  color: var(--dark-bg);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.generateButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+
+
+.questionContainer {
+  background-color: rgba(17, 24, 39, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  animation: slideInFromBottom 0.5s ease-out forwards;
+  margin-top: 1rem;
+}
+
+.questionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--brand-color);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pulseDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.questionContent {
+  overflow: hidden;
+}
+
+.questionText {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.errorMessage {
+  color: var(--error-color);
+  margin-top: 1rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .decorativeIcon {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .inputGroup {
+    gap: 0.75rem;
+  }
+
+  .input,
+  .generateButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .questionContainer {
+    padding: 1rem;
+  }
+
+  .questionText {
+    font-size: 1rem;
+    line-height: 1.625;
+  }
+}
+
+.input::placeholder {
+  color: var(--text-gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decorativeIcon,
+  .questionContainer,
+  .pulseDot {
+    animation: none;
+  }
+
+  .questionContainer {
+    animation: fadeIn 0.3s ease-out;
+  }
+}

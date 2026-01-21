@@ -1,0 +1,9 @@
+
+{
+  "name": "ITeam - Platform for IT Interview Preparation",
+  "description": "A premium landing page for ITeam, a platform dedicated to helping software engineers ace technical interviews with AI-powered mock sessions and specialized tracks.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

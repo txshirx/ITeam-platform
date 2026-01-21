@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--dark);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--dark);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(75, 85, 99, 0.8);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--brand);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.875rem;
+  color: var(--dark);
+  margin: 0 auto 1rem;
+  box-shadow: 0 20px 25px -5px color-mix(in srgb, var(--brand) 20%, transparent);
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: rgba(156, 163, 175, 1);
+  font-size: 0.875rem;
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: rgba(239, 68, 68, 1);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.passwordGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .passwordGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.buttonIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(75, 85, 99, 0.8);
+  text-align: center;
+}
+
+.footerText {
+  color: rgba(107, 114, 128, 1);
+  font-size: 0.875rem;
+}
+
+.footerLink {
+  color: var(--brand);
+  font-weight: bold;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* CSS переменные для тем */
+:root {
+  --brand: #1ac737; /* Примерный цвет бренда - замените на ваш */
+  --dark: #1b1b1b;
+  --card: #282828;
+  --text-primary: #f1f5f9;
+}

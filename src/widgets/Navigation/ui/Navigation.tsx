@@ -1,16 +1,23 @@
 import { ROUTES } from "@/shared/config/router/routes"
 import { RightArrowNavigation } from "@/shared/ui/icons"
 import { Link, useLocation } from "react-router-dom"
-import style from './QuizNavigation.module.css'
+import style from './Navigation.module.css'
 
 
-export const QuizNavigation = () => {
+export const Navigation = () => {
     const location = useLocation()
 
     return (
         <div className={style.quizNavContainer}>
-            {
-                location.pathname === ROUTES.QUIZ.CREATE ? 
+
+            {   location.pathname === ROUTES.QUESTIONS ? 
+                (
+                    <div className={style.content}>
+                        <Link to={ROUTES.QUESTIONS}><span>Вопросы</span> <RightArrowNavigation/></Link>
+                    </div>
+                ) 
+                :
+                (location.pathname === ROUTES.QUIZ.CREATE ? 
                 (
                     <div className={style.content}>
                         <Link to={ROUTES.QUIZ.CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
@@ -29,7 +36,7 @@ export const QuizNavigation = () => {
                         <Link to={ROUTES.QUIZ.CREATE}><span>Собеседование</span> <RightArrowNavigation/></Link>
                         <Link to={ROUTES.QUIZ.RESULT}><span>Результат</span> <RightArrowNavigation/></Link>
                     </div>
-                )
+                ))
             }
         </div>
     )

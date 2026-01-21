@@ -8,6 +8,7 @@ export type FiltersParamsType = {
 	specialization?: number | number[],
   page?: number,
   rate?: number[],
+  title?: string
 }
 
 export type Skills= {
