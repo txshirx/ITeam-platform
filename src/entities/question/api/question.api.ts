@@ -6,7 +6,7 @@ export const questionQuery = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getQuestion: builder.query<Question, number>({
             query: (id) => `${ENDPOINTS.QUESTIONS}${id}`,
-            providesTags: (res, err, id) => [{ type: 'Question', id}]
+            providesTags: (_, __, id) => [{ type: 'Question', id}]
         })
     })
 })

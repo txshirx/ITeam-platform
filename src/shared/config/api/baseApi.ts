@@ -7,7 +7,7 @@ const baseUrl = CONFIG.API_BASE_URL || 'http://localhost:3000'
 const baseQuery = fetchBaseQuery({
   baseUrl: baseUrl,
   credentials: 'include',
-  prepareHeaders: (headers, { getState }) => {
+  prepareHeaders: (headers, _) => {
     const accessToken = localStorage.getItem(LS_ACCESS_TOKEN_KEY);
     
     if (accessToken) {

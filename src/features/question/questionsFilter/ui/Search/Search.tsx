@@ -5,7 +5,7 @@ import { useDebaunce } from '@/shared/hooks/useDebaunce/useDebaunce'
 import { useSearchParams } from 'react-router-dom'
 
 export const Search = () => {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams, _] = useSearchParams()
     const [inputValue, setInputValue] = useState(searchParams.get('title') ?? '')
     const debauncedValue = useDebaunce(inputValue, 500)
 

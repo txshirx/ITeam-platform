@@ -18,10 +18,6 @@ export const OnboardingPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleStartPractice = () => {
-    console.log('Start practice clicked');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleLogin = () => {
     console.log('Login clicked');
@@ -33,10 +29,6 @@ export const OnboardingPage: React.FC = () => {
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleAIGenerate = (topic: string, question: string) => {
-    console.log('AI Generated:', { topic, question });
   };
 
   return (
