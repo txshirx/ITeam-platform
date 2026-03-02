@@ -4,7 +4,7 @@
   font-weight: 400;
   font-size: 16px;
   color-scheme: light dark;
-  color: #191919;
+  color: #F8F8F8;
   background-color: #1b1b1b;
   
   font-synthesis: none;
@@ -17,10 +17,10 @@
   --background-color-secondary: #282828;
   --background-color-main: #1b1b1b;
   --progress-bar-secondary: #E1CEFF;
-  --text-filter: #303030;
+  --text-filter: #F8F8F8;
   --text-main: #01de26;
   --text-card: #d7d7d7;
-  --text-color-in-main: #1b1b1b;
+  --text-color-in-main: #F8F8F8;
   --background-card: #FFFFFF;
   --button-rating-color: #F8F8F8;
   user-select: none;

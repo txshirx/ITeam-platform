@@ -5,6 +5,7 @@
     border-radius: 24px;
     background-color: var(--background-color-secondary);
     max-height: fit-content;
+    color: #F8F8F8;
 }
 
 .listWrapper h2 {

@@ -35,7 +35,7 @@ export const RegisterPage = () => {
         <div className={styles.card}>
           <div className={styles.header}>
             <div className={styles.logo}>
-              Y
+              i
             </div>
             <h1 className={styles.title}>Присоединяйся к ITeam</h1>
           </div>
